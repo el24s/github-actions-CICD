@@ -6,6 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.booleanThat;
 
 /**
  * Atelier — Tests unitaires
@@ -67,16 +68,32 @@ class CalculatriceTest {
 
     @Test
     void multiplierDeuxNombres() {
-        // TODO: Arrange - Act - Assert
+        // Arrange
+        int a = 4;
+        int b = 5;
+
+        // Act 
+        int resultat = calculatrice.multiplier(a, b);
+
+        // Assert
+        assertEquals(20, resultat);
+
         // Vérifiez que multiplier(4, 5) retourne 20
-        fail("Test à compléter");
     }
 
     @Test
     void maxRetourneLePlusGrandDesDeuxNombres() {
-        // TODO: Arrange - Act - Assert
+        // Arrange
+        int a = 7;
+        int b = 3;
+
+        // Act 
+        int resultat = calculatrice.max(a, b);
+
+        // Assert
+        assertEquals(7, resultat);
+
         // Vérifiez que max(7, 3) retourne 7
-        fail("Test à compléter");
     }
 
     // ------------------------------------------------------------------
@@ -85,18 +102,39 @@ class CalculatriceTest {
 
     @Test
     void estPairDistingueLesNombresPairsEtImpairs() {
-        // TODO: utilisez assertAll(...) pour vérifier PLUSIEURS assertions dans un seul test :
+        // Arrange
+        int a = 4;
+        int b = 7;
+        int c = 0;
+
+        // Act 
+        // boolean resultat = calculatrice.estPair(a);
+        boolean res1 = calculatrice.estPair(a);
+        boolean res2 = calculatrice.estPair(b);
+        boolean res3 = calculatrice.estPair(c);
+
+        // Assert
+        assertAll(
+            () -> assertTrue(res1),
+            () -> assertEquals(false, res2),
+            () -> assertEquals(true, res3)
+        );
+
+        // assertAll(...) pour vérifier PLUSIEURS assertions dans un seul test :
         //  - estPair(4) doit être vrai
         //  - estPair(7) doit être faux
         //  - estPair(0) doit être vrai
-        fail("Test à compléter");
+        
     }
 
     @Test
     void diviserParZeroLanceUneException() {
-        // TODO: utilisez assertThrows(ArithmeticException.class, () -> ...)
+        int a = 10;
+        int b = 0;
+
+        assertThrows(ArithmeticException.class, () -> calculatrice.diviser(a, b));
+        // utilisez assertThrows(ArithmeticException.class, () -> ...)
         // pour vérifier que diviser(10, 0) lance bien une ArithmeticException.
-        fail("Test à compléter");
     }
 
     // ------------------------------------------------------------------
@@ -106,9 +144,11 @@ class CalculatriceTest {
     @ParameterizedTest
     @ValueSource(ints = {2, 3, 5, 7, 11, 13})
     void estPremierRetourneVraiPourLesNombresPremiersConnus(int nombre) {
-        // TODO: Act + Assert
+        // Act
+        boolean resultat = calculatrice.estPremier(nombre);
+        // Assert
+        assertTrue(resultat);
         // Vérifiez que estPremier(nombre) retourne true pour chacune des valeurs fournies.
-        fail("Test à compléter");
     }
 
     @ParameterizedTest
@@ -119,16 +159,23 @@ class CalculatriceTest {
         "17, true"    // 17 est premier
     })
     void estPremierGereLesCasLimites(int nombre, boolean attendu) {
-        // TODO: Act + Assert
+        // Act 
+        boolean resultat = calculatrice.estPremier(nombre);
+        // Assert
+        assertEquals(attendu, resultat);
         // Vérifiez que estPremier(nombre) correspond bien à la valeur "attendu".
-        fail("Test à compléter");
     }
 
     @Test
     void diviserAvecNombresNegatifs() {
-        // TODO: Arrange - Act - Assert
+        // Arrange
+        int a = -10;
+        int b = 2;
+        // Act
+        int resultat = calculatrice.diviser(a, b);
+        // Assert
+        assertEquals(-5, resultat);
         // Cas limite : que se passe-t-il quand on divise un nombre négatif ?
         // Vérifiez que diviser(-10, 2) retourne -5.
-        fail("Test à compléter");
     }
 }
