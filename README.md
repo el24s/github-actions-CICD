@@ -74,3 +74,6 @@ vérifier que le pipeline détecte bien l'échec, puis corrigez-le et vérifiez 
 
 > 💡 Une solution complète (tests + pipeline) existe dans un document séparé destiné à
 > l'enseignant — elle ne doit pas être distribuée aux étudiants avant la fin de l'atelier.
+
+
+github actions -> extension
