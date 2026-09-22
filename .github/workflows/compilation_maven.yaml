@@ -4,7 +4,7 @@ on:
         branches:
             - main
 
-# Ma définitio de job qui va s'exécuter sur la machine virtuelle
+# Ma définition de job qui va s'exécuter sur la machine virtuelle
 jobs:
     compilation: #nom donnée
         runs-on: ubuntu-latest
@@ -13,7 +13,7 @@ jobs:
               uses: actions/checkout@v5
 
             - name: Set up JDK 21
-              uses: actions/setup-java@21
+              uses: actions/setup-java@5
               with:
                 distribution: 'temurin'
                 java-version: '25'
