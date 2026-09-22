@@ -4,7 +4,7 @@ on:
         branches:
             - main
 
-# Ma définitio de job qui va s'exécuter sur la machine virtuelle
+# Ma définition de job qui va s'exécuter sur la machine virtuelle
 jobs:
     compilation: #nom donnée
         runs-on: ubuntu-latest
